@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Mobile — Mobile Store</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div class="center-page">
+    <div class="form-shell">
+
+      <a href="/" class="back-link">&larr; Home</a>
+
+      <div class="ticket">
+        <div class="ticket-pad">
+
+          <div class="eyebrow">Stock in</div>
+          <h2 class="display" style="font-size:22px;margin-bottom:22px;">Add Mobile</h2>
+
+          <form action="/createdata" method="POST">
+
+            <div class="field">
+              <label for="brand">Brand</label>
+              <input type="text" id="brand" name="brand" placeholder="e.g. Samsung" required>
+            </div>
+
+            <div class="field">
+              <label for="model">Model</label>
+              <input type="text" id="model" name="model" placeholder="e.g. Galaxy S24" required>
+            </div>
+
+            <div class="field">
+              <label for="ram">RAM (GB)</label>
+              <input type="number" id="ram" name="ram" class="mono-input" placeholder="8" min="1" required>
+            </div>
+
+            <div class="field">
+              <label for="storage">Storage (GB)</label>
+              <input type="number" id="storage" name="storage" class="mono-input" placeholder="128" min="1" required>
+            </div>
+
+            <div class="field">
+              <label for="price">Price (&#8377;)</label>
+              <input type="number" id="price" name="price" class="mono-input" placeholder="49999" min="0" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Add Mobile</button>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

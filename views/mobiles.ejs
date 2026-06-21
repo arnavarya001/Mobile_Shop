@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory — Mobile Store</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div class="page">
+
+    <div class="site-header">
+      <div class="brand">
+        <div class="logo-mark"></div>
+        <div>
+          <div class="eyebrow">Inventory System</div>
+          <div class="brand-name">Mobile Store</div>
+        </div>
+      </div>
+      <a href="/" class="back-link" style="margin:0;">&larr; Home</a>
+    </div>
+
+    <form action="/getdata" method="GET" class="search-bar">
+      <input
+        type="text"
+        name="brand"
+        placeholder="Search by brand — Apple, Samsung, OnePlus..."
+        value="<%= searchTerm %>"
+      >
+      <button type="submit">Search</button>
+      <% if (searchTerm) { %>
+        <a href="/getdata" class="search-clear">Clear</a>
+      <% } %>
+    </form>
+
+    <% if (allmobiles.length === 0) { %>
+
+      <div class="ticket empty-state">
+        <div class="ticket-pad">
+          <div class="display">
+            <% if (searchTerm) { %>
+              No phones match "<%= searchTerm %>"
+            <% } else { %>
+              The shelf is empty
+            <% } %>
+          </div>
+          <p>
+            <% if (searchTerm) { %>
+              Try a different brand, or <a href="/getdata" style="color:var(--accent-2);font-weight:600;">view the full catalogue</a>.
+            <% } else { %>
+              <a href="/insertdata" style="color:var(--accent-2);font-weight:600;">Add your first mobile</a> to get started.
+            <% } %>
+          </p>
+        </div>
+      </div>
+
+    <% } else { %>
+
+      <div class="grid">
+        <% allmobiles.forEach((m) => { %>
+
+          <div class="ticket">
+            <div class="ticket-pad">
+
+              <div class="eyebrow"><%= m.brand %></div>
+              <div class="tile-title" style="font-size:18px;"><%= m.model %></div>
+
+              <div class="spec-row">
+                <span class="chip"><%= m.ram %> GB RAM</span>
+                <span class="chip"><%= m.storage %> GB Storage</span>
+              </div>
+
+              <div class="price-label">Price</div>
+              <div class="price">&#8377;<%= m.price.toLocaleString('en-IN') %></div>
+
+              <hr class="div">
+
+              <div class="actions">
+                <a href="/edit/<%= m._id %>" class="btn btn-edit">Edit</a>
+                <a
+                  href="/delete/<%= m._id %>"
+                  class="btn btn-delete"
+                  onclick="return confirm('Delete this mobile from inventory?');"
+                >Delete</a>
+              </div>
+
+            </div>
+          </div>
+
+        <% }) %>
+      </div>
+
+    <% } %>
+
+  </div>
+
+</body>
+</html>

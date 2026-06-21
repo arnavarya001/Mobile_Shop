@@ -1,0 +1,14 @@
+{
+  "name": "mobile-store-management",
+  "version": "1.0.0",
+  "description": "Mobile Store inventory management (Add/Edit/Delete/Search by Brand) — Node, Express, MongoDB, EJS",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.22.2",
+    "mongoose": "^8.7.0"
+  }
+}
