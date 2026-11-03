@@ -1,14 +1,23 @@
 {
   "name": "mobile-store-management",
   "version": "1.0.0",
-  "description": "Mobile Store inventory management (Add/Edit/Delete/Search by Brand) — Node, Express, MongoDB, EJS",
+  "description": "Mobile Store inventory management on Netlify",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node --import tsx app.js"
   },
   "dependencies": {
+    "@netlify/database": "^2.0.1",
+    "@netlify/functions": "^6.0.3",
+    "drizzle-orm": "^1.0.0-beta.22",
     "ejs": "^3.1.10",
-    "express": "^4.22.2",
-    "mongoose": "^8.7.0"
+    "express": "^4.22.2"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.5",
+    "@types/node": "^26.6.6",
+    "drizzle-kit": "^1.0.0-beta.22",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
   }
 }
